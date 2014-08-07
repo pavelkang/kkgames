@@ -1,0 +1,50 @@
+.btn.btn-embossed {
+    width: 8.5em;
+    font-size: .8em;
+}
+.form-control.input-sm {
+    height: 1.5em;
+    width: 17.5em;
+}
+.btn.btn-embossed.btn-info.restart {
+    background-color: #e74c3c;
+    font-size: .8em;
+}
+.btn.btn-embossed.btn-info.start {
+    background-color: #2ecc71;
+    font-size: .8em;
+}
+.btn {
+    width: 4em;
+}
+.btn.btn-default {
+    background-color: #7f8c8d;
+}
+.control_panel {
+    bottom: 2px;
+}
+.cards {
+    font-size: 2em;
+}
+body {
+    background-color: #f9f9f9;
+}
+.top_bar {
+    height: 2px;
+    color: #2980b9;
+    background-color: #2980b9;
+    border: 0;
+}
+#feedback {
+    color: #27ae60;
+}
+#scoreboard {
+	font-size: .8em;
+    position: fixed;
+    right : 5%;
+}
+#clock {
+	font-size: .8em;	
+    position: fixed;
+    left : 5%;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html ng-app="game24">
+
+<head>
+    <title>24 Game</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" charset="utf-8">
+    <script src="/angular/angular.min.js"></script>
+    <script src="/js/game24.js"></script>
+    <link rel="stylesheet" href="/flat-ui-official/css/flat-ui.css">
+    <link rel="stylesheet" href="/css/game24.css">
+    <script type="application/javascript" src="/fastclick/lib/fastclick.js"></script>
+    <script type="text/javascript">
+    window.addEventListener('load', function() {
+        FastClick.attach(document.body);
+    }, false);
+    </script>
+</head>
+
+<body ng-controller="SettingsController">
+    <div ng-show="!gameOn">
+        <div ng-controller="NumberController">
+            <center>
+                <h5 class="animated fadeInDown">24点</h5>
+            </center>
+            <hr class="top_bar">
+            <center>
+                <div class="cards">
+                    <span id="first">{{data.numbers[0]}}</span>
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <span id="second">{{data.numbers[1]}}</span>
+                    <br>
+                    <span id="third">{{data.numbers[2]}}</span>
+                    &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <span id="fourth">{{data.numbers[3]}}</span>
+                </div>
+
+                <center>
+                    <div class="response">
+                        <input type="text" class="form-control input-sm" placeholder="1*2*3*4" ng-model='expr' />
+                    </div>
+                </center>
+                <center>
+                    <div class="buttons">
+                        <button class="btn btn-default" ng-click="press(0)">{{data.numbers[0]}}</button>
+                        <button class="btn btn-default" ng-click="press(1)">{{data.numbers[1]}}</button>
+                        <button class="btn btn-default" ng-click="press(2)">{{data.numbers[2]}}</button>
+                        <button class="btn btn-default" ng-click="press(3)">{{data.numbers[3]}}</button>
+                        <br>
+                        <button class="btn btn-danger" ng-click="press(4)">+</button>
+                        <button class="btn btn-warning" style="background-color:#e67e22" ng-click="press(5)">-</button>
+                        <button class="btn btn-warning" ng-click="press(6)">x</button>
+                        <button class="btn btn-primary" ng-click="press(7)">/</button>
+                        <br>
+                        <button class="btn btn-inverse" ng-click="press(8)">(</button>
+                        <button class="btn btn-inverse" ng-click="press(9)">)</button>
+                        <button class="btn btn-danger" ng-click="press(10)">C</button>
+                        <button class="btn btn-danger" ng-click="press(11)">AC</button>
+                    </div>
+                </center>
+                <center>
+                    <p id="feedback" ng-model="feedback" ng-style="responseColor">{{feedback}}</p>
+                </center>
+        </div>
+        <center>
+            <div class="response">
+                <button class="btn btn-embossed btn-info" ng-click="init()">
+                    <span>跳过</span>
+                </button>
+                <button type="submit" class="btn btn-embossed btn-success" ng-click="submit()">提交
+                </button>
+            </div>
+        </center>
+        <br>
+        <hr class="top_bar">
+        <center>
+            <div class="control_panel">
+                <button class="btn btn-embossed btn-info start" ng-click="startGame()">开始</button>
+                <button class="btn btn-embossed btn-info restart" ng-click="restartGame()">重来</button>
+                <span ng-style="data.clockStyle" id="clock">剩余时间:
+                    <br>{{panel.remainingTime | clockFilter}}</span>
+                <span style="color:black" id="scoreboard">你解决了:
+                    <br>{{data.numOfSolved}}</span>
+            </div>
+        </center>
+    </div>
+    <center>
+        <div ng-show="gameOn">
+            <p>你解出了{{data.numOfSolved}}道题</p>
+            <p>你的智商大概是{{data.numOfSolved*30}}</p>
+			<p>如果智商能当饭吃，</p>
+        </div>
+    </center>
+</body>
+
+</html>
