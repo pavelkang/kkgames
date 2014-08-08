@@ -86,8 +86,9 @@
     <center>
         <div ng-show="gameOn">
             <p>你解出了{{data.numOfSolved}}道题</p>
-            <p>你的智商大概是{{data.numOfSolved*30}}</p>
+            <p>你的智商大概是{{data.numOfSolved*29}}</p>
 			<p>如果智商能当饭吃，</p>
+            <p>{{calcIQ(data.numOfSolved)}}</p>
         </div>
     </center>
 </body>

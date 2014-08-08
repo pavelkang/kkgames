@@ -2,7 +2,15 @@ var totalTime = 10000; // total time of one game
 var checkInterval = 800; // the time it waits for the next game
 var clockInterval = 100; // the time the clock refreshes 
 var game24 = angular.module('game24', []);
-
+var lines = [
+    "你早就饿死了！",
+    "你勉强养活了自己",
+    "你养活了全班！",
+    "你养活了一条街！",
+    "你养活了你们全小区！",
+    "你养活了整个中国！",
+    "你养活了整个地球！"
+];
 game24.factory('Data', function() {
     return {
         isGameOn: false,
@@ -21,14 +29,14 @@ game24.controller('SettingsController', function($scope, Data) {
         Data.numOfSolved = 0;
         Data.clockStyle.color = "green";
         $scope.panel.remainingTime = totalTime;
-    }
+    };
     $scope.startGame = function() {
         Data.isGameOn = true;
         $scope.panel.startTime = new Date();
         for (var i = 0; i < 4; i++) {
             $scope.data.numbers[i] = randomCard();
         }
-    }
+    };
     $scope.panel = {
         title: "1 min game",
         remainingTime: totalTime,
@@ -36,8 +44,9 @@ game24.controller('SettingsController', function($scope, Data) {
         currentTime: null
     };
     $scope.calcIQ = function(num) {
-    	console.log("Hi")
-    	return 1;
+        if (num>6)
+            num = 6;
+        return lines[num];
     };
     var updateClock = function() {
         if ($scope.data.isGameOn) {
@@ -161,7 +170,9 @@ game24.filter('clockFilter', function() {
     };
 });
 
-
+game24.directive('wechat-share', function() {
+    
+})
 
 /* Helper Functions */
 
