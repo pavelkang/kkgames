@@ -40,11 +40,27 @@ body {
 }
 #scoreboard {
 	font-size: .8em;
-    position: fixed;
+    position: absolute;
+    bottom: 5%;
     right : 5%;
 }
 #clock {
 	font-size: .8em;	
-    position: fixed;
+    position: absolute;
+    bottom : 5%;
     left : 5%;
+}
+.footer {
+    width : 100%;
+    bottom : 3%;
+    position : absolute;
+}
+#bottom_bar {
+    position: absolute;
+    bottom: 10%;
+    width : 100%;
+}
+.em {
+    color : tomato;
+    text-decoration: underline;
 }

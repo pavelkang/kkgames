@@ -1,7 +1,7 @@
-var totalTime = 10000; // total time of one game
+var totalTime = 1000; // total time of one game
 var checkInterval = 800; // the time it waits for the next game
 var clockInterval = 100; // the time the clock refreshes 
-var game24 = angular.module('game24', []);
+var game24 = angular.module('game24', ['pavelkang.wx-share']);
 var lines = [
     "你早就饿死了！",
     "你勉强养活了自己",
@@ -24,6 +24,15 @@ game24.factory('Data', function() {
 game24.controller('SettingsController', function($scope, Data) {
     $scope.data = Data;
     $scope.gameOn = true;
+    $scope.shareInfo = {
+        link : "kkgames.herokuapp.com/game24",
+        img  : "http://img4.imgtn.bdimg.com/it/u=3229687681,2680864333&fm=23&gp=0.jpg",
+        title : "快来玩24点吧！",
+        desc : "HTML 24点游戏"
+    }
+    $scope.refresh = function() {
+        window.location.href = '/game24';
+    }
     $scope.restartGame = function() {
         Data.isGameOn = false;
         Data.numOfSolved = 0;
@@ -46,6 +55,7 @@ game24.controller('SettingsController', function($scope, Data) {
     $scope.calcIQ = function(num) {
         if (num>6)
             num = 6;
+        $scope.shareInfo.title = "如果智商能当饭吃，" + lines[num];
         return lines[num];
     };
     var updateClock = function() {
@@ -55,7 +65,7 @@ game24.controller('SettingsController', function($scope, Data) {
             if ($scope.panel.remainingTime < totalTime / 2) {
                 $scope.data.clockStyle.color = "orange";
             }
-            if ($scope.panel.remainingTime < totalTime / 10) {
+            if ($scope.panel.remainingTime < totalTime / 5) {
                 $scope.data.clockStyle.color = "red";
             }
             if ($scope.panel.remainingTime <= 0) {
@@ -94,9 +104,10 @@ game24.controller('NumberController', function($scope, $parse, Data) {
         $scope.data.numbers = newNumbers;
     };
     $scope.submit = function() {
+        console.log("hi")
         if (result == 24 && validate($scope.data.numbers, $scope.expr)) {
             $scope.responseColor.color = "green";
-            $scope.feedback = "对了!";
+            $scope.feedback = "对了!加油!";
             if ($scope.data.isGameOn) {
                 $scope.data.numOfSolved += 1;
             }
@@ -169,10 +180,6 @@ game24.filter('clockFilter', function() {
         }
     };
 });
-
-game24.directive('wechat-share', function() {
-    
-})
 
 /* Helper Functions */
 

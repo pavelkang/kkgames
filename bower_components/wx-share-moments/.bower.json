@@ -1,0 +1,33 @@
+{
+  "name": "wx-share-moments",
+  "main": "wx-share-moments.js",
+  "authors": [
+    "Kai <sclingtt@gmail.com>"
+  ],
+  "description": "AngularJS directive for easy Weixin sharing on \"Moments\"",
+  "keywords": [
+    "weixin"
+  ],
+  "license": "MIT",
+  "homepage": "kaikang.herokuapp.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.20"
+  },
+  "_release": "8fdc800a8e",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "8fdc800a8e08a8861782a3b29ccb3e68f19e1c6a"
+  },
+  "_source": "git://github.com/pavelkang/wx-share-moments.git",
+  "_target": "*",
+  "_originalSource": "wx-share-moments",
+  "_direct": true
+}
