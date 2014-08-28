@@ -21,11 +21,6 @@
     <wx-share-moments title="shareInfo.title" link="shareInfo.link" img="shareInfo.img" desc="shareInfo.desc"></wx-share-moments>
     <div ng-show="gameOn">
         <div ng-controller="NumberController">
-            <!--
-            <center>
-                <h5 class="animated fadeInDown">24点</h5>
-            </center>
-            <hr class="top_bar">-->
             <center>
                 <div class="cards">
                     <span id="first">{{data.numbers[0]}}</span>
@@ -90,7 +85,8 @@
             <p>你的智商大概是{{data.numOfSolved*29}}</p>
             <p>如果智商能当饭吃，</p>
             <p>{{calcIQ(data.numOfSolved)}}</p>
-            <p>快按 <span class="em">右上角</span> 发到朋友圈显摆显摆吧！</p>
+            <p>快按
+                <span class="em">右上角</span>发到朋友圈显摆显摆吧！</p>
             <button ng-click="refresh()" class="btn btn-embossed btn-info restart">重新来过</button>
         </div>
     </center>
